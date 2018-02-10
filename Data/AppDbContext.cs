@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using PieShopCore.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PieShopCore.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<IdentityUser>
     {
         public DbSet<Pie> Pies { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
