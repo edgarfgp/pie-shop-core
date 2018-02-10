@@ -18,6 +18,7 @@ namespace PieShopCore.Repositories
         }
         public void AddFeedback(Feedback feedback)
         {
+
             context.Feedbacks.Add(feedback);
             context.SaveChanges();
         }
