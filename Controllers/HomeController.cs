@@ -28,5 +28,21 @@ namespace PieShopCore.Controllers
             };
             return View(homeViewModel);
         }
+
+        public IActionResult Details(int id)
+        {
+            var pie = pieService.GetPieById(id);
+
+            if (pie == null)
+            {
+                return NotFound();
+            }
+
+            var detailViewModel = new DetailViewModel()
+            {
+                PieDetail = pie
+            };
+            return View(detailViewModel);
+        }
     }
 }
