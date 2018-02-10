@@ -38,10 +38,13 @@ namespace PieShopCore
             //Repositories
             //services.AddTransient<IPieRepository, MockPieRepository>();
             services.AddTransient<IPieRepository, PieRepository>();
+            services.AddTransient<IFeedbackRepository, FeedbackRepository>();
+
 
 
             //Services
             services.AddTransient<IPieService, PieService>();
+            services.AddTransient<IFeedbackService, FeedbackService>();
 
 
             services.AddMvc();
