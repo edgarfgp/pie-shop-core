@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PieShopCore.IServices;
 using PieShopCore.Models;
@@ -10,6 +11,7 @@ using PieShopCore.Models;
 
 namespace PieShopCore.Controllers
 {
+    [Authorize]
     public class FeedbackController : Controller
     {
         IFeedbackService feedbackService;
