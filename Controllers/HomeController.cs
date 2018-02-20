@@ -17,14 +17,11 @@ namespace PieShopCore.Controllers
         }
         public IActionResult Index()
         {
-
             var pies = pieService.GetAllPies().OrderBy(n => n.Name).ToList();
             var homeViewModel = new HomeViewModel()
             {
                 Title = "Welcome",
                 Pies = pies
-
-
             };
             return View(homeViewModel);
         }
@@ -37,7 +34,7 @@ namespace PieShopCore.Controllers
             {
                 return NotFound();
             }
-
+                
             var detailViewModel = new DetailViewModel()
             {
                 PieDetail = pie
