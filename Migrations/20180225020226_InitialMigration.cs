@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace PieShopCore.Migrations
 {
-    public partial class IdentityMigration : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,6 +46,42 @@ namespace PieShopCore.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Feedbacks",
+                columns: table => new
+                {
+                    FeedbackId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ContactMe = table.Column<bool>(nullable: false),
+                    Email = table.Column<string>(maxLength: 100, nullable: false),
+                    Message = table.Column<string>(maxLength: 5000, nullable: false),
+                    Name = table.Column<string>(maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Feedbacks", x => x.FeedbackId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Pies",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ImageThumbnailUrl = table.Column<string>(nullable: true),
+                    ImageUrl = table.Column<string>(nullable: true),
+                    IsInStockep = table.Column<bool>(nullable: false),
+                    IsPieOfTheWeek = table.Column<bool>(nullable: false),
+                    LongDescription = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Price = table.Column<decimal>(nullable: false),
+                    ShortDescription = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pies", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -210,6 +246,12 @@ namespace PieShopCore.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Feedbacks");
+
+            migrationBuilder.DropTable(
+                name: "Pies");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

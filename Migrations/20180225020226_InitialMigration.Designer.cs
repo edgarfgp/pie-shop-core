@@ -11,8 +11,8 @@ using System;
 namespace PieShopCore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20180210172035_IdentityMigration")]
-    partial class IdentityMigration
+    [Migration("20180225020226_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
